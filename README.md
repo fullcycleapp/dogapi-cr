@@ -23,6 +23,7 @@ dependencies:
 ## Usage
 When running the code below you need the `DATADOG_KEY` and a `DATADOG_APP_KEY` set, go to [Integrations > APIs](https://app.datadoghq.com/account/settings#api) in datadog to get your API and app key.
 
+After that, you can use this client in your Crystal programs like so:
 ```crystal
 require "dogapi"
 
@@ -30,9 +31,11 @@ dog = Dogapi::Client.new(ENV["DATADOG_KEY"])
 dog.emit_point("test.api.test_metric", 4.0)
 ```
 
-Take a look at the `examples/` folder for more examples.
+Take a look at the `examples/` folder for more examples usages.
 
 ## Contributing
+
+Contributions and patches are welcome! Please read the following instructions before submitting your patch:
 
 1. Fork it (<https://github.com/fullcycleapp/dogapi-cr/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -40,7 +43,7 @@ Take a look at the `examples/` folder for more examples.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-## Contributors
+## Maintainers
 
 - Calvin Hill ([@return](https://github.com/return)) - creator, maintainer
 - Wesley Hill ([@hako](https://github.com/hako)) - maintainer
