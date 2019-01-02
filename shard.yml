@@ -1,0 +1,9 @@
+name: dogapi
+version: 0.1
+
+authors:
+  - Calvin Hill <calvin@hakobaito.co.uk>
+
+crystal: 0.27.0
+
+license: Apache 2.0

@@ -1,0 +1,10 @@
+require "./v1/alert"
+require "./v1/comment"
+require "./v1/dash"
+require "./v1/dashboard_list"
+require "./v1/event"
+require "./v1/metric"
+require "./v1/monitor"
+require "./v1/user"
+
+API_VERSION = "v1"

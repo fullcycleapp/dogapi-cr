@@ -1,0 +1,12 @@
+
+os:
+  - linux
+  - osx
+
+language: crystal
+crystal:
+  - latest
+
+script:
+  - shards
+  - crystal spec
