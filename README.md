@@ -2,6 +2,10 @@
 
 dogapi-cr is a crystal client for [DataDog](https://www.datadoghq.com)'s [API](https://docs.datadoghq.com/api/) the code is based loosely on Datadog's [Ruby Library](https://github.com/DataDog/dogapi-rb).
 
+## Requirements
+
+Crystal 0.27.0+
+
 ## Installation
 
 Add this to your application's `shard.yml`:
