@@ -13,7 +13,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   dogapi:
-    github: fullcycleapp/dogapi
+    github: fullcycleapp/dogapi-cr
 ```
 
 ## Usage
