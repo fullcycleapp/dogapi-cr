@@ -1,4 +1,9 @@
-# dogapi-cr
+# dogapi-cr 
+
+[![Travis-CI][travis-badge]][travis-url]
+
+[travis-badge]: https://api.travis-ci.org/fullcycleapp/dogapi-cr.svg?branch=master
+[travis-url]: https://travis-ci.org/fullcycleapp/dogapi-cr
 
 dogapi-cr is a crystal client for [DataDog](https://www.datadoghq.com)'s [API](https://docs.datadoghq.com/api/) the code is based loosely on Datadog's [Ruby Library](https://github.com/DataDog/dogapi-rb).
 
@@ -15,7 +20,6 @@ dependencies:
   dogapi:
     github: fullcycleapp/dogapi-cr
 ```
-
 ## Usage
 When running the code below you need the `DATADOG_KEY` and a `DATADOG_APP_KEY` set, go to [Integrations > APIs](https://app.datadoghq.com/account/settings#api) in datadog to get your API and app key.
 
@@ -40,7 +44,6 @@ Take a look at the `examples/` folder for more examples.
 
 - Calvin Hill ([@return](https://github.com/return)) - creator, maintainer
 - Wesley Hill ([@hako](https://github.com/hako)) - maintainer
-
 
 ## LICENSE
 
