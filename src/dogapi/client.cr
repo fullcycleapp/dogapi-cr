@@ -20,7 +20,6 @@ require "./v1/user"
 
 module Dogapi
   class Client
-
     @api_key : String
     @application_key : String | Nil
     @host : String | Nil
@@ -28,7 +27,7 @@ module Dogapi
     @timeout : String | Nil
     @endpoint : String | Nil
     @datadog_host : String | Nil
-    @host: String | Time | Nil
+    @host : String | Time | Nil
 
     property :datadog_host
 
@@ -47,7 +46,6 @@ module Dogapi
       scope = override_scope options
       @comment_svc.comment(message, options)
     end
-    
 
     #
     # METRICS
@@ -67,9 +65,9 @@ module Dogapi
       options = defaults.merge(options)
 
       self.emit_points(
-          metric,
-          [[options[:timestamp], value]],
-          options
+        metric,
+        [[options[:timestamp], value]],
+        options
       )
     end
 
@@ -88,7 +86,7 @@ module Dogapi
       scope = override_scope options
 
       points.each do |p|
-        # if p[0].is_a?(Time) == 
+        # if p[0].is_a?(Time) ==
         #   raise Exception.new("")
         # end
         # p[0] = p[0].to_i
@@ -102,13 +100,13 @@ module Dogapi
       @metric_svc.get(query, from, to)
     end
 
-    def emit_event(event, options= {} of String => String)
+    def emit_event(event, options = {} of String => String)
       scope = override_scope options
 
       @event_svc.post(event, scope)
     end
 
-    def batch_metrics()
+    def batch_metrics
       @metric_svc.switch_to_batched
       begin
         yield
@@ -119,10 +117,9 @@ module Dogapi
     end
 
     private def override_scope(options = {} of String => String)
-      defaults = { :host => @host, :device => @device }
+      defaults = {:host => @host, :device => @device}
       options = defaults.merge(options)
       Scope.new(options[:host], options[:device])
     end
-
   end
 end

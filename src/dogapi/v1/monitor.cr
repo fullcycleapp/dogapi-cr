@@ -4,10 +4,9 @@ module Dogapi
   class V1 # for namespacing
 
     class MonitorService < Dogapi::APIService
-
       def monitor(type, query, options = {} of String => String)
         body = {
-          :type => type,
+          :type  => type,
           :query => query,
         }.merge(options)
 
@@ -58,7 +57,7 @@ module Dogapi
 
       def validate_monitor(type, query, options = {} of String => String)
         body = {
-          :type => type,
+          :type  => type,
           :query => query,
         }.merge options
 
@@ -94,7 +93,7 @@ module Dogapi
 
       def schedule_downtime(scope, options = {} of String => String)
         body = {
-          :scope => scope
+          :scope => scope,
         }.merge options
 
         request("POST", "/api/#{API_VERSION}/downtime", nil, body, true)
@@ -113,7 +112,7 @@ module Dogapi
       end
 
       def cancel_downtime_by_scope(scope)
-        request("POST", "/api/#{API_VERSION}/downtime/cancel/by_scope", nil, { :scope => scope }, false)
+        request("POST", "/api/#{API_VERSION}/downtime/cancel/by_scope", nil, {:scope => scope}, false)
       end
 
       def get_all_downtimes
@@ -131,6 +130,5 @@ module Dogapi
         request("POST", "/api/#{API_VERSION}/host/#{hostname}/unmute", nil, nil, true)
       end
     end
-
   end
 end

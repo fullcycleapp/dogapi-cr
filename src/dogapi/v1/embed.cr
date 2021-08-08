@@ -7,9 +7,8 @@ module Dogapi
     #    EMBED API
     # ================
     class EmbedService < Dogapi::APIService
-
       # Get all embeds for the API user's org
-      def get_all_embeds()
+      def get_all_embeds
         request("GET", "/api/#{API_VERSION}/graph/embed", nil, nil, false)
       end
 
@@ -19,7 +18,7 @@ module Dogapi
       # :size           => String: "small", "medium"(defualt), "large", or "xlarge".
       # :legend         => String: "yes" or "no"(default)
       # :template_vars  => String: variable name => variable value (any number of template vars)
-      def get_embed(embed_id, description= {} of String => String)
+      def get_embed(embed_id, description = {} of String => String)
         request("GET", "/api/#{API_VERSION}/graph/embed/#{embed_id}", description, nil, false)
       end
 
@@ -30,7 +29,7 @@ module Dogapi
       # :size        => String: representing the size of the graph. Default is "medium".
       # :legend      => String: flag representing whether a legend is displayed. Default is "no".
       # :title       => String: represents title of the graph. Default is "Embed created through API."
-      def create_embed(graph_json, description= {} of String => String)
+      def create_embed(graph_json, description = {} of String => String)
         body = {
           :graph_json => graph_json,
         }.merge(description)
@@ -51,8 +50,6 @@ module Dogapi
       def revoke_embed(embed_id)
         request("GET", "/api/#{API_VERSION}/graph/embed/#{embed_id}/revoke", nil, nil, false)
       end
-
     end
-
   end
 end

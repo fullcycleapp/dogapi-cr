@@ -4,7 +4,6 @@ module Dogapi
   class V1 # for namespacing
 
     class ScreenboardService < Dogapi::APIService
-
       def create_screenboard(description)
         request("POST", "/api/#{API_VERSION}/screen", nil, description, true)
       end
@@ -17,7 +16,7 @@ module Dogapi
         request("GET", "/api/#{API_VERSION}/screen/#{board_id}", nil, nil, false)
       end
 
-      def get_all_screenboards()
+      def get_all_screenboards
         request("GET", "/api/#{API_VERSION}/screen", nil, nil, false)
       end
 
@@ -32,8 +31,6 @@ module Dogapi
       def revoke_screenboard(board_id)
         request("DELETE", "/api/#{API_VERSION}/screen/share/#{board_id}", nil, nil, false)
       end
-
     end
-
   end
 end

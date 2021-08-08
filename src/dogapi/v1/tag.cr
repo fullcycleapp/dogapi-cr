@@ -4,7 +4,6 @@ module Dogapi
   class V1 # for namespacing
 
     class TagService < Dogapi::APIService
-
       # Gets all tags in your org and the hosts tagged with them
       def get_all(source = nil)
         # extra_params = {} of String => String
@@ -15,7 +14,7 @@ module Dogapi
       end
 
       # Gets all tags for a given host
-      def get(host_id, source=nil, by_source=false)
+      def get(host_id, source = nil, by_source = false)
         extra_params = {} of String => String
         if source
           extra_params["source"] = source
@@ -28,28 +27,28 @@ module Dogapi
       end
 
       # Adds a list of tags to a host
-      def add(host_id, tags, source=nil)
+      def add(host_id, tags, source = nil)
         extra_params = {} of String => String
         if source
           extra_params["source"] = source
         end
 
         body = {
-          :tags => tags
+          :tags => tags,
         }
 
         request("POST", "/api/" + API_VERSION + "/tags/hosts/" + host_id.to_s, extra_params, body, true)
       end
 
       # Remove all tags from a host and replace them with a new list
-      def update(host_id, tags, source=nil)
+      def update(host_id, tags, source = nil)
         extra_params = {} of String => String
         if source
           extra_params["source"] = source
         end
 
         body = {
-          :tags => tags
+          :tags => tags,
         }
 
         request("PUT", "/api/" + API_VERSION + "/tags/hosts/" + host_id.to_s, extra_params, body, true)
@@ -62,7 +61,7 @@ module Dogapi
       end
 
       # Remove all tags from a host
-      def detach(host_id, source=nil)
+      def detach(host_id, source = nil)
         extra_params = {} of String => String
         if source
           extra_params["source"] = source
@@ -70,8 +69,6 @@ module Dogapi
 
         request("DELETE", "/api/" + API_VERSION + "/tags/hosts/" + host_id.to_s, extra_params, nil, false)
       end
-
     end
-
   end
 end

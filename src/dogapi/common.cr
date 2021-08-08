@@ -3,14 +3,13 @@ require "uri"
 require "json"
 
 module Dogapi
-
   class Scope
     @host : Int64 | String | Time | Nil
     @device : Int64 | String | Time | Nil
 
     property :host
     property :device
-    
+
     def initialize(@host = nil, @device = nil)
       @host = host
       @device = device
@@ -19,11 +18,10 @@ module Dogapi
 
   # Superclass that deals with the details of communicating with the DataDog API.
   class APIService
-
     @api_key : String
     @application_key : String | Nil
     @host : String | Nil
-    @timeout :  Int32 | Nil
+    @timeout : Int32 | Nil
     @endpoint : String | Nil
     @api_host : String | Nil
 
@@ -42,7 +40,7 @@ module Dogapi
       return -1, {} of String => String
     end
 
-    def request(method, url, extra_params, body, send_json, with_app_key=true)
+    def request(method, url, extra_params, body, send_json, with_app_key = true)
       resp = nil
       uri = URI.parse(@api_host.to_s)
       tls = uri.scheme == "https" ? true : false
@@ -56,7 +54,7 @@ module Dogapi
         app_key = @application_key
       end
       current_url = url + prepare_params(extra_params, app_key)
-      
+
       client.before_request do |req|
         if send_json == true
           req.headers["Content-Type"] = "application/json"
@@ -68,9 +66,9 @@ module Dogapi
     end
 
     def prepare_params(extra_params, with_app_key)
-      params = { 
-          api_key: @api_key,
-          application_key: @application_key ? with_app_key : nil
+      params = {
+        api_key:         @api_key,
+        application_key: @application_key ? with_app_key : nil,
       }
       params = extra_params.merge params unless extra_params.nil?
       qs_params = params.map { |k, v| URI.encode(k.to_s) + '=' + URI.encode(v.to_s) }
@@ -90,9 +88,8 @@ module Dogapi
         raise "Invalid JSON Response: " + resp.body
       end
     end
-
   end
-  
+
   def Dogapi.find_datadog_host
     # allow env-based overriding, useful for tests
     ENV["DATADOG_HOST"]? || "https://api.datadoghq.com"
