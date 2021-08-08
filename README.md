@@ -9,7 +9,7 @@ dogapi-cr is a crystal client for [DataDog](https://www.datadoghq.com)'s [API](h
 
 ## Requirements
 
-Crystal 0.27.0+
+Crystal 1.0+
 
 ## Installation
 

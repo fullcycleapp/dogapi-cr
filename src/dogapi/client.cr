@@ -63,7 +63,7 @@ module Dogapi
     # options[:type] = "counter" to specify a counter metric
     # options[:tags] = ["tag1", "tag2"] to tag the point
     def emit_point(metric, value, options = {} of String => String)
-      defaults = { :timestamp => Time.now.to_unix }
+      defaults = {:timestamp => Time.local.to_unix}
       options = defaults.merge(options)
 
       self.emit_points(

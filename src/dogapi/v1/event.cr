@@ -39,7 +39,7 @@ module Dogapi
     #  :aggregation_key => String
     def initialize(msg_text, options = {} of String => String)
             defaults = {
-                :date_happened => Time.now.to_unix,
+                :date_happened => Time.local.to_unix,
                 :msg_title => "",
                 :priority => "normal",
                 :parent => nil,

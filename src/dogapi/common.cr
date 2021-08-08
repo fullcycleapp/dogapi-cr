@@ -73,7 +73,7 @@ module Dogapi
           application_key: @application_key ? with_app_key : nil
       }
       params = extra_params.merge params unless extra_params.nil?
-      qs_params = params.map { |k, v| URI.escape(k.to_s) + '=' + URI.escape(v.to_s) }
+      qs_params = params.map { |k, v| URI.encode(k.to_s) + '=' + URI.encode(v.to_s) }
       qs = '?' + qs_params.join('&')
       qs
     end
